@@ -24,10 +24,15 @@
         let len = myObj.length;
         temp = '';
         for (let i = 0; i < len; i++) {
-            temp += '<tr><td>' + myObj[i].Title + '</tr></td>';
+            temp += '<tr>' +
+                '<td>' + myObj[i].Title + '</td>' +
+                '<td><img src="./img/' + myObj[i].Picture + '" width="80"></td>' +
+                '<td>' + myObj[i].Price + ' บาท' + '</td>'
+
+            '</tr>';
         }
         console.log(myObj);
-        document.getElementById('demo').innerHTML = '<table>' + temp + '</table>';
+        document.getElementById('demo').innerHTML = '<table border=1px>' + temp + '</table>';
     };
 
 
