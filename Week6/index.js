@@ -1,2 +1,2 @@
-import myJson from './example.json';
-console.log(myJson);
+import data from './example.json';
+console.log(data);
