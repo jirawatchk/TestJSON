@@ -1,8 +1,9 @@
 {
-    "person": {
-        "name": "Alice",
-        "country": "Austria",
-        "tasks": ["develop", "design", "test"],
-        "age": 30
-    }
+    "name": "John",
+    "age": 31,
+    "pets": [
+        { "animal": "dog", "name": "Fido" },
+        { "animal": "cat", "name": "Felix" },
+        { "animal": "hamster", "name": "Lightning" }
+    ]
 }
