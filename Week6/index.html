@@ -17,6 +17,32 @@
     <p id="demo"></p>
 
 </body>
-<script type="module" src="index.js"></script>
+<script>
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        let myObj = JSON.parse(this.responseText);
+        let len = myObj.length;
+        temp = '';
+        for (let i = 0; i < len; i++) {
+            temp += '<tr><td>' + myObj[i].Title + '</tr></td>';
+        }
+        console.log(myObj);
+        document.getElementById('demo').innerHTML = '<table>' + temp + '</table>';
+    };
+
+
+    xmlhttp.open("GET", "./BookStore.json");
+    xmlhttp.send();
+
+
+
+    /* const xmlhttp = new XMLHttpRequest();
+     xmlhttp.onload = function() {
+         const myObj = JSON.parse(this.responseText);
+         document.getElementById("demo").innerHTML = myObj.name;
+     };
+     xmlhttp.open("GET", "example.json");
+     xmlhttp.send();*/
+</script>
 
 </html>
