@@ -62,38 +62,38 @@ var emp = [{
     "salary": 16000,
     "Bonus": "A",
 }]
-var sum1 = 0
-var sum4 = 0
-var sum5 = 0
-var sum6 = 0
+var sumsalary = 0
+var sumtax = 0
+var totalbonus = 0
+var salaryforyear = 0
 for (empsum = 0; empsum < emp.length; empsum++) {
     if (emp[empsum].Bonus == "S") {
-        sum3 = emp[empsum].salary * 1.4;
-        sum5 += sum3;
+        sumbonus = emp[empsum].salary * 1.4;
+        totalbonus += sumbonus;
     } else if (emp[empsum].Bonus == "A") {
-        sum3 = emp[empsum].salary * 1.2;
-        sum5 += sum3;
+        sumbonus = emp[empsum].salary * 1.2;
+        totalbonus += sumbonus;
     } else if (emp[empsum].Bonus == "B") {
-        sum3 = emp[empsum].salary * 1.0;
-        sum5 += sum3;
+        sumbonus = emp[empsum].salary * 1.0;
+        totalbonus += sumbonus;
     } else if (emp[empsum].Bonus == "C") {
-        sum3 = emp[empsum].salary * 0.8;
-        sum5 += sum3;
+        sumbonus = emp[empsum].salary * 0.8;
+        totalbonus += sumbonus;
     }
-    sum1 = emp[empsum].salary * 12;
-    sum7 = sum1 + sum3
-    sum6 += sum7;
-    if (sum1 < 200000) {} else if (sum1 >= 200000 && sum1 <= 500000) {
-        sum2 = sum1 * 0.07;
-        sum4 += sum2;
-    } else if (sum1 >= 500000 && sum1 <= 1000000) {
-        sum2 = sum1 * 0.20;
-        sum4 += sum2;
-    } else if (sum1 > 1000000) {
-        sum2 = sum1 * 0.30;
-        sum4 += sum2;
+    sumsalary = emp[empsum].salary * 12;
+    totalsalary = sumsalary + sumbonus
+    salaryforyear += totalsalary;
+    if (sumsalary < 200000) {} else if (sumsalary >= 200000 && sumsalary <= 500000) {
+        tax = sumsalary * 0.07;
+        sumtax += tax;
+    } else if (sumsalary >= 500000 && sumsalary <= 1000000) {
+        tax = sumsalary * 0.20;
+        sumtax += tax;
+    } else if (sumsalary > 1000000) {
+        tax = sumsalary * 0.30;
+        sumtax += tax;
     }
-    console.log(emp[empsum].Name, "มีรายได้สุทธิต่อปี =", sum7, "บาท", "ต้องจ่ายภาษี", sum2, "บาท", "ได้โบนัส", sum3);
+    console.log(emp[empsum].Name, "มีรายได้สุทธิต่อปี =", totalsalary, "บาท", "ต้องจ่ายภาษี", tax, "บาท", "ได้โบนัส", Math.ceil(sumbonus));
 }
 console.log("พนักงานแผนกไอที")
 for (i = 0; i < emp.length; i++) {
@@ -108,6 +108,6 @@ for (i = 0; i < emp.length; i++) {
         console.log(emp[i].Name, "ผลประเมิน", emp[i].Bonus);
     }
 }
-console.log("บริษัทต้องจ่ายภาษีทั้งหมด :", sum4)
-console.log("โบนัสที่ต้องให้พนักงานทั้งหมด :", sum5)
-console.log("รายจ่ายต่อปีของบริษัท :", sum6)
+console.log("บริษัทต้องจ่ายภาษีทั้งหมด :", sumtax)
+console.log("โบนัสที่ต้องให้พนักงานทั้งหมด :", totalbonus)
+console.log("รายจ่ายต่อปีของบริษัท :", salaryforyear)
