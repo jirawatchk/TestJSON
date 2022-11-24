@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <p id="demo"></p>
+    <p id="display"> ไม่พบข้อมูล </p>
 
 </body>
 <script>
@@ -32,22 +32,10 @@
             '</tr>';
         }
         console.log(myObj);
-        document.getElementById('demo').innerHTML = '<table border=1px>' + temp + '</table>';
+        document.getElementById('display').innerHTML = '<table border=1px>' + temp + '</table>';
     };
-
-
     xmlhttp.open("GET", "./BookStore.json");
     xmlhttp.send();
-
-
-
-    /* const xmlhttp = new XMLHttpRequest();
-     xmlhttp.onload = function() {
-         const myObj = JSON.parse(this.responseText);
-         document.getElementById("demo").innerHTML = myObj.name;
-     };
-     xmlhttp.open("GET", "example.json");
-     xmlhttp.send();*/
 </script>
 
 </html>
