@@ -114,11 +114,11 @@ function CaculateBonus(salary, bonusRank) {
 
 function CaculateTax(annual) {
     let tax = 0;
-    if (annual < 200000 && annual > 0) taxRate = 0;
-    else if (annual > 200000 && annual < 500000) taxRate = 0.07;
-    else if (annual > 500000 && annual < 1000000) taxRate = 0.2;
-    else if (annual > 1000000) taxRate = 0.3;
-    return Math.round(annual * taxRate);
+    if (annual < 200000 && annual > 0) tax = 0;
+    else if (annual > 200000 && annual < 500000) tax = annual * 0.07;
+    else if (annual > 500000 && annual < 1000000) tax = annual * 0.2;
+    else if (annual > 1000000) tax = annual * 0.3;
+    return Math.round(tax);
 }
 
 function RunAndDisplay() {
@@ -145,9 +145,9 @@ function RunAndDisplay() {
             " บาท");
     }
     console.log("\n++++++พนักงานแผนกไอที++++++");
-    for (let i = 0; i < employee.length; i++) {
+    for (let i = 0; i < employee.length; i++)
         if (employee[i].department == "ไอที") console.log(employee[i].name + " ภาษีที่ต้องจ่าย " + employee[i].tax + " บาท");
-    }
+
     console.log("\n++++++พนักงานที่ได้รับการประเมินโบนัสระดับS++++++");
     for (let i = 0; i < employee.length; i++)
         if (employee[i].bonusRank == "S") console.log(employee[i].name);
