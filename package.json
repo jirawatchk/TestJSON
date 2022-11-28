@@ -1,0 +1,22 @@
+{
+  "name": "testjson",
+  "version": "1.0.0",
+  "description": "หัวจะปวด",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrGolf2022/TestJSON.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrGolf2022/TestJSON/issues"
+  },
+  "homepage": "https://github.com/MrGolf2022/TestJSON#readme",
+  "devDependencies": {
+    "json-server": "^0.17.1"
+  }
+}

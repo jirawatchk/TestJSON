@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <ul id="display">
+
+    </ul>
+    <button id="createData">Create Data</button>
+    <script>
+        const url = './BookStore.json';
+
+        function addData(data) {
+            let display = document.querySelector('#display');
+            console.log(data.book);
+            data.forEach(element => {
+                let myele = document.createElement('li');
+                myele.innerText = `ISBN : ${element.ISBN}`;
+                display.appendChild(myele);
+            });
+        }
+        fetch(url).then(
+            res => res.json()
+        ).then(
+            data => addData(data)
+        )
+
+
+        async function createData() {
+            await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+                    body: JSON.stringify({
+                        "ISBN": 1150,
+                        "Title": "โครงสร้างข้อมูล (Data Structures) เพื่อการออกแบบโปรแกรมคอมพิวเตอร์ (ฉบับปรับปรุง)",
+                        "Description": "โครงสร้างข้อมูล (Data Structures) จัดเป็นวิชาหนึ่งในสาขาคอมพิวเตอร์ที่นำมาซึ่งความตื่นเต้นและความท้าทายแก่ผู้เรียนอยู่ไม่น้อย ความน่าตื่นเต้นในที่นี้คือ เราจะได้ศึกษาถึงเทคนิคการเขียนโปรแกรมที่มีอยู่มากมาย เพื่อนำมาแก้ไขปัญหาทางคอมพิวเตอร์ ส่วนความท้าทายก็คือ ความยุ่งยากและความซับซ้อนของโครงสร้างข้อมูล จะนำมาซึ่งแนวความคิดอันหลากหลาย ที่สามารถนำมาประยุกต์ใช้กับวิธีการออกแบบโปรแกรมที่เหมาะสมต่อไป ภายในหนังสือเล่มนี้ได้แบ่งเนื้อหาออกเป็น 4 ส่วนด้วยกัน ซึ่งครอบคลุมเนื้อหาเกี่ยวกับโครงสร้างข้อมูล อันได้แก่ อาร์เรย์ ลิงก์ลิสต์ สแต็ก คิว ทรี และ กราฟ รวมถึงเทคนิคการจัดเรียงลำดับและการค้นหาข้อมูล เหมาะสำหรับใช้เป็นหนังสือประกอบการเรียนของคณาจารย์ นิสิตนักศึกษา รวมถึงผู้สนใจทั่วไปที่ต้องการเพิ่มพูนความรู้ศาสตร์วิชาโครงสร้างข้อมูล",
+                        "Author": "โอภาส เอี่ยมสิริวงศ์",
+                        "Yearofpublication": 2016,
+                        "Price": 219,
+                        "Picture": "9786160821631.jpg"
+                    })
+                })
+                .then(res => console.log("RES : ", res))
+                .catch(err => console.log("REE : ", err));
+        }
+        let createDataBtn = document.querySelector('#createData');
+        createDataBtn.addEventListener('click', createData);
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,3 @@
-const xmlhttp = new XMLHttpRequest();
-xmlhttp.onload = function() {
-    const myObj = JSON.parse(this.responseText);
-    document.getElementById("demo").innerHTML = myObj.name;
-};
-xmlhttp.open("GET", "example.json");
-xmlhttp.send();
+fetch('Week6\BookStore.json')
+    .then((response) => response.json())
+    .then((data) => appendData(data));
