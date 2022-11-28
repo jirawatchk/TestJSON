@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <div class="contarenir" style="max-width:60%;margin-right:auto ; margin-left:auto;">
+        <h1>JSON Class</h1>
+    </div>
     <div class="contarenir" id="display" style="max-width:60%;margin-left: auto; margin-right: auto;"></div>
 
 </body>
@@ -25,12 +28,13 @@
         temp = '';
         for (let i = 0; i < len; i++) {
             temp += '<tr>' +
+                '<td ><img src="./img/' + myObj[i].Picture + '" width="120"/></td>' +
                 '<td><b>' + myObj[i].Title +
                 '</b><br>&nbsp;&nbsp;&nbsp;&nbsp;' + myObj[i].Description +
+                '<br><b>ISBN : </b>' + myObj[i].ISBN +
                 '<br><b>ผู้แต่ง : </b>' + myObj[i].Author +
                 '<br><b>ราคา : </b>' + myObj[i].Price + ' บาท' +
                 '</td>' +
-                '<td ><img src="./img/' + myObj[i].Picture + '" width="120"/></td>' +
 
                 '</tr>'
         }
