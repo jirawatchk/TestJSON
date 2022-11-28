@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <p id="display"> ไม่พบข้อมูล </p>
+    <div class="contarenir" id="display" style="max-width:60%;margin-left: auto; margin-right: auto;"></div>
 
 </body>
 <script>
@@ -25,16 +25,19 @@
         temp = '';
         for (let i = 0; i < len; i++) {
             temp += '<tr>' +
-                '<td>' + myObj[i].Title + '</td>' +
-                '<td><img src="./img/' + myObj[i].Picture + '" width="80"></td>' +
-                '<td>' + myObj[i].Price + ' บาท' + '</td>'
+                '<td><b>' + myObj[i].Title +
+                '</b><br>&nbsp;&nbsp;&nbsp;&nbsp;' + myObj[i].Description +
+                '<br><b>ผู้แต่ง : </b>' + myObj[i].Author +
+                '<br><b>ราคา : </b>' + myObj[i].Price + ' บาท' +
+                '</td>' +
+                '<td ><img src="./img/' + myObj[i].Picture + '" width="120"/></td>' +
 
-            '</tr>';
+                '</tr>'
         }
         console.log(myObj);
-        document.getElementById('display').innerHTML = '<table border=1px>' + temp + '</table>';
+        document.getElementById('display').innerHTML = '<table class="table">' + temp + '</table>';
     };
-    xmlhttp.open("GET", "./BookStore.json");
+    xmlhttp.open("GET", "./BookStore.json ");
     xmlhttp.send();
 </script>
 
