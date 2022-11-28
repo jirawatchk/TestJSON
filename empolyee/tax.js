@@ -125,7 +125,7 @@ function RunAndDisplay() {
     let sumTax = 0,
         sumBonus = 0,
         sumExpenes = 0;
-    console.log("+++ข้อมูลพนักงานทั้งหมด+++")
+
     for (let i = 0; i < employee.length; i++) {
         employee[i].bonus = CaculateBonus(employee[i].salary, employee[i].bonusRank);
         employee[i].annual = (employee[i].salary * 12) + employee[i].bonus;
@@ -134,7 +134,8 @@ function RunAndDisplay() {
         sumTax += employee[i].tax;
         sumBonus += employee[i].bonus;
         sumExpenes += employee[i].annual;
-        // Display
+        // Display 
+        console.log("+++ข้อมูลพนักงานทั้งหมด+++");
         console.log(employee[i].name +
             "\tแผนก" + employee[i].department +
             "\tเงินเดือน " + employee[i].salary +
