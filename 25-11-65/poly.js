@@ -1,107 +1,115 @@
-var dtat = [{
-    "ID": 20001,
-    "Name": "นางสาวจันทรรัตน์ ปรีดาศิริกุล",
-    "Dept": "ฝ่ายบุคคล",
-    "Position": "HR",
-    "salary": 27000,
-    "Level": "A",
-}, {
-    "ID": 20002,
-    "Name": "นายภูมิพัฒน วัชรจิระกุล",
+var emp = [{
+    "IDemp": 10001,
+    "Name": "นางสาว ชนิสาไกรรอด",
     "Dept": "IT",
     "Position": "System Engineer",
-    "salary": 24000,
-    "Level": "S",
+    "salary": 42000,
+    "Bonus": "S",
 }, {
-    "ID": 20003,
-    "Name": "นางอนันตญา แสนวงศ์",
-    "Dept": "การเงิน",
-    "Position": "Account",
-    "salary": 38000,
-    "Level": "B",
+    "IDemp": 10002,
+    "Name": "นายวศพล สิริอนันต์",
+    "Dept": "IT",
+    "Position": "System Engineer",
+    "salary": 13000,
+    "Bonus": "A",
 }, {
-    "ID": 20004,
-    "Name": "นางสาวกันสิตา มิ่งมาลา",
-    "Dept": "ฝ่ายบุคคล",
+    "IDemp": 10003,
+    "Name": "นางจิราพร อินทรประเสริฐ",
+    "Dept": "HR",
     "Position": "HR",
-    "salary": 23000,
-    "Level": "A",
+    "salary": 9000,
+    "Bonus": "C",
 }, {
-    "ID": 20005,
-    "Name": "นายสุชาติ วัฒนศักดิ์มนตรี",
-    "Dept": "ฝ่ายบุคคล",
+    "IDemp": 10004,
+    "Name": "นางสาวพิมพา กาญจนมาศ",
+    "Dept": "HR",
     "Position": "HR",
-    "salary": 76000,
-    "Level": "C",
+    "salary": 21000,
+    "Bonus": "B",
 }, {
-    "ID": 20006,
-    "Name": "นายกรณ อุดมทรัพย์",
-    "Dept": "การเงิน",
-    "Position": "Account",
-    "salary": 51000,
-    "Level": "S",
-}, {
-    "ID": 20007,
-    "Name": "นายจักริน ภูงาม",
-    "Dept": "ฝ่ายบุคคล",
+    "IDemp": 10005,
+    "Name": "นายจิรโชติ วัฒนโกศล",
+    "Dept": "HR",
     "Position": "HR",
-    "salary": 19000,
-    "Level": "A",
+    "salary": 22000,
+    "Bonus": "A",
 }, {
-    "ID": 20008,
-    "Name": "นางอรัญญา เหล่าสกุล",
-    "Dept": "การเงิน",
+    "IDemp": 10006,
+    "Name": "นายฑัชพล ขจรเกียรติสกุล",
+    "Dept": "Account",
     "Position": "Account",
-    "salary": 33000,
-    "Level": "C",
+    "salary": 12000,
+    "Bonus": "S",
 }, {
-    "ID": 20009,
-    "Name": "นางสาวสราวลี ธาราวงศ์",
+    "IDemp": 10007,
+    "Name": "นายธนวิทย์ สุวรรณโชติ",
+    "Dept": "Account",
+    "Position": "Account",
+    "salary": 14000,
+    "Bonus": "A",
+}, {
+    "IDemp": 10008,
+    "Name": "นางพัชรียา สำราญทรัพย์",
+    "Dept": "Account",
+    "Position": "Account",
+    "salary": 50000,
+    "Bonus": "C",
+}, {
+    "IDemp": 10009,
+    "Name": "นางสาวขวัญชนก ธาดาวรวงศ์",
     "Dept": "IT",
     "Position": "System Account",
-    "salary": 13000,
-    "Level": "B",
+    "salary": 16000,
+    "Bonus": "A",
 }]
-var sum01 = 0
-var sum02 = 0
-var sum03 = 0
-var sum04 = 0
-for (dtatsum = 0; dtatsum < dtat.length; dtatsum++) {
-    if (dtat[dtatsum].Level == "S") {
-        sum3 = dtat[dtatsum].salary * 1.6;
-        sum03 += sum3;
-    } else if (dtat[dtatsum].Level == "A") {
-        sum3 = dtat[dtatsum].salary * 1.3;
-        sum03 += sum3;
-    } else if (dtat[dtatsum].Level == "B") {
-        sum3 = dtat[dtatsum].salary * 1.0;
-        sum03 += sum3;
-    } else if (dtat[dtatsum].Level == "C") {
-        sum3 = dtat[dtatsum].salary * 0.8;
-        sum03 += sum3;
+var sumsalary = 0
+var sumtax = 0
+var totalbonus = 0
+var salaryforyear = 0
+for (empsum = 0; empsum < emp.length; empsum++) {
+    if (emp[empsum].Bonus == "S") {
+        sumbonus = emp[empsum].salary * 1.4;
+        totalbonus += sumbonus;
+    } else if (emp[empsum].Bonus == "A") {
+        sumbonus = emp[empsum].salary * 1.2;
+        totalbonus += sumbonus;
+    } else if (emp[empsum].Bonus == "B") {
+        sumbonus = emp[empsum].salary * 1.0;
+        totalbonus += sumbonus;
+    } else if (emp[empsum].Bonus == "C") {
+        sumbonus = emp[empsum].salary * 0.8;
+        totalbonus += sumbonus;
     }
-    sum01 = dtat[dtatsum].salary * 12;
-    sum7 = sum01 + sum03
-    sum04 += sum7;
-    if (sum01 < 300000) {} else if (sum01 >= 300000 && sum01 <= 600000) {
-        sum2 = sum01 * 0.1;
-        sum02 += sum2;
-    } else if (sum01 >= 600000 && sum01 <= 1000000) {
-        sum2 = sum01 * 0.25;
-        sum02 += sum2;
-    } else if (sum01 > 1000000) {
-        sum2 = sum01 * 0.35;
-        sum02 += sum2;
+    sumsalary = emp[empsum].salary * 12;
+    totalsalary = sumsalary + sumbonus
+    salaryforyear += totalsalary;
+    if (totalsalary < 200000) {
+        tax = 0;
+    } else if (totalsalary > 200000 && totalsalary < 500000) {
+        tax = totalsalary * 0.07;
+        sumtax += tax;
+    } else if (totalsalary > 500000 && totalsalary < 1000000) {
+        tax = totalsalary * 0.20;
+        sumtax += tax;
+    } else if (totalsalary > 1000000) {
+        tax = totalsalary * 0.30;
+        sumtax += tax;
     }
-    console.log(dtat[dtatsum].Name, "มีรายได้สุทธิต่อปี =", sum7, "บาท", "ต้องจ่ายภาษี", sum2, "บาท", "ได้โบนัส", sum3);
+    console.log(emp[empsum].Name, "มีรายได้สุทธิต่อปี =", totalsalary, "บาท", "ต้องจ่ายภาษี", tax, "บาท", "ได้โบนัส", Math.ceil(sumbonus));
 }
-console.log("ผลประเมิน A")
-for (i = 0; i < dtat.length; i++) {
-    if (dtat[i].Level == "A") {
-        console.log(dtat[i].Name, "ผลประเมิน", dtat[i].Level);
+console.log("พนักงานแผนกไอที")
+for (i = 0; i < emp.length; i++) {
+    if (emp[i].Dept == "IT") {
+        itsum = emp[i].salary * 12;
+        console.log(emp[i].Name, "ตำแหน่ง", emp[i].Position, "เงินเดือน", emp[i].salary, "รายได้ต่อปี", itsum);
     }
 }
-
-console.log("บริษัทต้องจ่ายภาษีทั้งหมด :", sum02)
-console.log("โบนัสที่ต้องให้พนักงานทั้งหมด :", sum03)
-console.log("รายจ่ายต่อปีของบริษัท :", sum04)
+console.log("ผลประเมินS")
+for (i = 0; i < emp.length; i++) {
+    if (emp[i].Bonus == "S") {
+        console.log(emp[i].Name, "ผลประเมิน", emp[i].Bonus);
+    }
+}
+console.log("บริษัทต้องจ่ายภาษีทั้งหมด :", sumtax)
+console.log("โบนัสที่ต้องให้พนักงานทั้งหมด :", totalbonus)
+console.log("รายจ่ายต่อปีของบริษัท :", salaryforyear)
