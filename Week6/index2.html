@@ -15,11 +15,11 @@
     </ul>
     <button id="createData">Create Data</button>
     <script>
-        const url = './BookStore.json';
+        const url = 'http://localhost:3000/book';
 
         function addData(data) {
             let display = document.querySelector('#display');
-            console.log(data.book);
+            console.log(data);
             data.forEach(element => {
                 let myele = document.createElement('li');
                 myele.innerText = `ISBN : ${element.ISBN}`;
@@ -28,33 +28,34 @@
         }
         fetch(url).then(
             res => res.json()
-        ).then(
+            ).then(
             data => addData(data)
         )
 
 
-        async function createData() {
-            await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-
-                    },
-                    body: JSON.stringify({
-                        "ISBN": 1150,
-                        "Title": "โครงสร้างข้อมูล (Data Structures) เพื่อการออกแบบโปรแกรมคอมพิวเตอร์ (ฉบับปรับปรุง)",
-                        "Description": "โครงสร้างข้อมูล (Data Structures) จัดเป็นวิชาหนึ่งในสาขาคอมพิวเตอร์ที่นำมาซึ่งความตื่นเต้นและความท้าทายแก่ผู้เรียนอยู่ไม่น้อย ความน่าตื่นเต้นในที่นี้คือ เราจะได้ศึกษาถึงเทคนิคการเขียนโปรแกรมที่มีอยู่มากมาย เพื่อนำมาแก้ไขปัญหาทางคอมพิวเตอร์ ส่วนความท้าทายก็คือ ความยุ่งยากและความซับซ้อนของโครงสร้างข้อมูล จะนำมาซึ่งแนวความคิดอันหลากหลาย ที่สามารถนำมาประยุกต์ใช้กับวิธีการออกแบบโปรแกรมที่เหมาะสมต่อไป ภายในหนังสือเล่มนี้ได้แบ่งเนื้อหาออกเป็น 4 ส่วนด้วยกัน ซึ่งครอบคลุมเนื้อหาเกี่ยวกับโครงสร้างข้อมูล อันได้แก่ อาร์เรย์ ลิงก์ลิสต์ สแต็ก คิว ทรี และ กราฟ รวมถึงเทคนิคการจัดเรียงลำดับและการค้นหาข้อมูล เหมาะสำหรับใช้เป็นหนังสือประกอบการเรียนของคณาจารย์ นิสิตนักศึกษา รวมถึงผู้สนใจทั่วไปที่ต้องการเพิ่มพูนความรู้ศาสตร์วิชาโครงสร้างข้อมูล",
-                        "Author": "โอภาส เอี่ยมสิริวงศ์",
-                        "Yearofpublication": 2016,
-                        "Price": 219,
-                        "Picture": "9786160821631.jpg"
-                    })
+        function createData() {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "id": 19,
+                    "ISBN": 9789744438317,
+                    "Title": "IoT เบื้องต้นบน NodeMCU",
+                    "Description": "แนะนำการเชื่อมต่อ NodeMCU ESP8266 กับอุปกรณ์อินพุต-เอาต์พุต เช่น หลอด LED ตัวต้านทานแบบปรับค่าได้ ตัวต้านทานแบบปรับค่าตามแสง จอ LCD แบบ I2C จอแสดงผล 7-Segment รวมทั้งการเชื่อมต่อกับเซนเซอร์ต่าง ๆ เช่น เซนเซอร์ตรวจจับความเคลื่อนไหว เซนเซอร์วัดแสง เซนเซอร์วัดระยะทาง ฯลฯ พร้อมตัวอย่างการเขียนโปรแกรมควบคุมการทำงานของแต่ละอุปกรณ์ และตอนท้ายเป็นการประยุกต์ IoT โดยควบคุมการเคลื่อนที่ของหุ่นยนต์ด้วยสมาร์ทโฟนผ่านแอปพลิเคชัน Blynk และการแจ้งเตือนปริมาณฝุ่น PM2.5 ผ่านแอปพลิเคชัน LINE",
+                    "Author": "ผศ. ดอนสัน ปงผาบ",
+                    "Year": 2022,
+                    "Price": 250,
+                    "Picture": "9789744438317.jpg"
                 })
+            })
                 .then(res => console.log("RES : ", res))
                 .catch(err => console.log("REE : ", err));
         }
         let createDataBtn = document.querySelector('#createData');
         createDataBtn.addEventListener('click', createData);
+
     </script>
 </body>
 
