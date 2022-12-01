@@ -19,30 +19,33 @@
 </head>
 
 <body onload="getAjax()">
-    <div class="container"style="margin-left:20% ;margin-right: 20%;">
-        <div class="container" id="display" ></div>
-        <button class="btn" onclick="clickNext()">ถัดไป</button>
+    <div class="container">
+        <div class="container" id="display"></div>
     </div>
 
     <script>
         let i = 0;
-        let length = 0;
         function getAjax() {
             let xhttp = new XMLHttpRequest();
-            xhttp.onload = function () {
+           /* xhttp.onload = function () {
                 let temp = '';
                 let obj = JSON.parse(this.responseText);
-                 len = obj.book.length;
-                temp += '<tr><td><img src="./img/' + obj.book[i].Picture + '"/ width="150"></td></tr>';
+                len = obj.book.length;
+                let s ='คัมภีร์ภาษา C ฉบับสมบูรณ์';
+                for (i = 0; i < len; i++) {
+                    temp += '<tr>'
+                        +'<td><img src="./img/' + obj.book[i].picture + '"/ width="150"></td>'
+                        +'<td><h4><b>'+obj.book[i].title +'</b></h4>'
+                        +obj.book[i].description 
+                        +'<br><b>ผู้แต่ง : </b>'+obj.book[i].author
+                        
+                          + '</td>'
+                        +'</tr>';
+                }
                 document.getElementById('display').innerHTML = '<table class="table">' + temp + '</table>';
-           }
+            }*/
             xhttp.open("GET", './BookStore.json');
             xhttp.send();
-        }
-        function clickNext() {
-            i++;
-            
-            getAjax();
         }
 
     </script>
