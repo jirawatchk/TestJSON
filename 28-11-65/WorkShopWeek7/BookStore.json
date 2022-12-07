@@ -189,6 +189,51 @@
       "year": 2022,
       "price": 250,
       "picture": "9789744438317.jpg"
+    },
+    {
+      "ISBN": "888555",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
+      "id": 20
+    },
+    {
+      "ISBN": "99998558",
+      "title": "ทดสอบ",
+      "description": "มาสิมาสิ",
+      "author": "ผมเอง",
+      "year": "20202",
+      "price": "1992",
+      "id": 21
+    },
+    {
+      "ISBN": "",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
+      "id": 22
+    },
+    {
+      "ISBN": "",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
+      "id": 23
+    },
+    {
+      "ISBN": "",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
+      "id": 24
     }
   ]
 }
