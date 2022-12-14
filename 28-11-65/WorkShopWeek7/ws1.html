@@ -18,7 +18,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="getAjax()">
     <div class="container">
         <div class="row justify-content-end">
             <button class="btn btn-info">Add Book</button>
@@ -52,51 +52,59 @@
                     <label>Price</label>
                     <input type="text" id="price">
                 </div>
-                <a class="btn btn-primary" onclick="addBook()">Submit</a>
+                <div><label for="formFile" class="form-label">Picture </label>
+                    <input id="fileInput" type="file" />
+
+                </div>
+                <button class="btn btn-primary" onclick="addBook()">Submit</button>
             </form>
+
+
         </div>
     </div>
     <script>
         let i = 0;
         let xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            let temp = '';
-            let obj = JSON.parse(this.responseText);
-            len = obj.length;
-            for (i = 0; i < len; i++) {
-                temp += '<tr>'
-                    + '<td><img src="./img/' + obj[i].picture + '"/ width="150"></td>'
-                    + '<td><h4><b>' + obj[i].title + '</b></h4>'
-                    + obj[i].description
-                    + '<br><b>ผู้แต่ง : </b>' + obj[i].author
 
-                    + '</td>'
-                    + '</tr>';
+      
+        function getAjax() {
+            xhttp.onload = function () {
+                let temp = '';
+                let obj = JSON.parse(this.responseText);
+                len = obj.length;
+                for (i = 0; i < len; i++) {
+                    temp += '<tr>'
+                        + '<td><img src="./img/' + obj[i].picture + '"/ width="150"></td>'
+                        + '<td><h4><b>' + obj[i].title + '</b></h4>'
+                        + obj[i].description
+                        + '<br><b>ผู้แต่ง : </b>' + obj[i].author
 
-                //console.log(obj.book[i].title);
+                        + '</td>'
+                        + '</tr>';
+
+                    //console.log(obj.book[i].title);
+                }
+                document.getElementById('display').innerHTML = '<table class="table">' + temp + '</table>';
             }
-            document.getElementById('display').innerHTML = '<table class="table">' + temp + '</table>';
+            xhttp.open("GET", 'http://localhost:3000/book');
+            xhttp.send();
         }
-        xhttp.open("GET",'http://localhost:3000/book');
-        xhttp.send();
-
         function addBook() {
-            let obj={
-                "ISBN":document.forms["myForm"]["ISBN"].value,
-                "title":document.forms["myForm"]["title"].value,
-                "description":document.forms["myForm"]["description"].value,
-                "author":document.forms["myForm"]["author"].value,
-                "year":document.forms["myForm"]["year"].value,
-                "price":document.forms["myForm"]["price"].value
+            let obj = {
+                "ISBN": document.forms["myForm"]["ISBN"].value,
+                "title": document.forms["myForm"]["title"].value,
+                "description": document.forms["myForm"]["description"].value,
+                "author": document.forms["myForm"]["author"].value,
+                "year": document.forms["myForm"]["year"].value,
+                "price": document.forms["myForm"]["price"].value
             }
-            
             let text = JSON.stringify(obj);
             let xhttp = new XMLHttpRequest();
-
             console.log(text);
-            xhttp.open("POST",'http://localhost:3000/book');
+            xhttp.open("POST", 'http://localhost:3000/book');
             xhttp.setRequestHeader("Content-Type", "application/json");
             xhttp.send(text);
+            getAjax();
         }
     </script>
 </body>

@@ -191,7 +191,7 @@
       "picture": "9789744438317.jpg"
     },
     {
-      "ISBN": "888555",
+      "ISBN": "",
       "title": "",
       "description": "",
       "author": "",
@@ -200,12 +200,12 @@
       "id": 20
     },
     {
-      "ISBN": "99998558",
-      "title": "ทดสอบ",
-      "description": "มาสิมาสิ",
-      "author": "ผมเอง",
-      "year": "20202",
-      "price": "1992",
+      "ISBN": "",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
       "id": 21
     },
     {
@@ -234,6 +234,15 @@
       "year": "",
       "price": "",
       "id": 24
+    },
+    {
+      "ISBN": "",
+      "title": "",
+      "description": "",
+      "author": "",
+      "year": "",
+      "price": "",
+      "id": 25
     }
   ]
 }
