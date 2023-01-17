@@ -43,7 +43,7 @@
                 .then(data => {
                     for (i = 1; i < 78; i++) {
                         map[i] = [data[i]["CC-DESC"], parseFloat(data[i]["TOTAL"].replace(/,/g, ''))];
-                        temp += i + ". " + data[i]["CC-DESC"]+" มีประชากร "+data[i]["TOTAL"]+"คน <br>";
+                        temp += i + ". " + data[i]["CC-DESC"] + " มีประชากร " + data[i]["TOTAL"] + "คน <br>";
                     }
                     document.getElementById('text').innerHTML = temp;
                     var data = google.visualization.arrayToDataTable(map);
@@ -55,6 +55,8 @@
                     chart.draw(data, options);
                 });
         }
+
+
     </script>
 
     <div class="container">
