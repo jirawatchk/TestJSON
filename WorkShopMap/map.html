@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>MAP</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +43,6 @@
                 .then(data => {
                     for (i = 1; i < 78; i++) {
                         map[i] = [data[i]["CC-DESC"], parseFloat(data[i]["TOTAL"].replace(/,/g, ''))];
-                        temp += i + ' ' + data[i]["CC-DESC"] + "จำนวนประชากร " + data[i]["TOTAL"] + '<br>';
                     }
                     document.getElementById('display').innerHTML = temp;
                     var data = google.visualization.arrayToDataTable(map);
@@ -51,7 +50,7 @@
                         region: 'TH',
                         resolution: 'provinces',
                     };
-                    var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+                    var chart = new google.visualization.GeoChart(document.getElementById('display'));
                     chart.draw(data, options);
                 });
         }
